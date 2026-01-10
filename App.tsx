@@ -260,6 +260,9 @@ const FreeLesson = () => (
         <p className="text-zinc-400 text-lg mb-12 max-w-2xl mx-auto">
           13 минут, которые покажут тебе как устроен этот бизнес изнутри
         </p>
+        <p className="text-zinc-400 text-lg mb-12 max-w-2xl mx-auto">
+          Видео загружено с ютуба, поэтому включи VPN, чтобы оно отображалось
+        </p>
       </Reveal>
       
       <Reveal delay={100}>
