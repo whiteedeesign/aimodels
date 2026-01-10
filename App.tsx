@@ -37,6 +37,25 @@ import {
 import { Reveal } from './components/Reveal';
 import { Feature, PricingPlan, FAQItem, ProgramModule } from './types';
 
+// Ссылки на оплату для разных тарифов и способов
+const paymentLinks: Record<string, { rub: string; eur: string; crypto: string }> = {
+  "Самостоятельный": {
+    rub: "https://t.me/tribute/app?startapp=sKT4",
+    eur: "https://t.me/tribute/app?startapp=sKT5",
+    crypto: "https://t.me/m/zmJlaKr0YzRi"
+  },
+  "Продвинутый": {
+    rub: "https://t.me/tribute/app?startapp=sKSZ",
+    eur: "https://t.me/tribute/app?startapp=sKT0",
+    crypto: "https://t.me/m/A3z1vlHUZGYy"
+  },
+  "Менторство": {
+    rub: "https://t.me/tribute/app?startapp=sKT7",
+    eur: "https://t.me/tribute/app?startapp=sKT6",
+    crypto: "https://t.me/m/t0yhGZSBMzA6"
+  }
+};
+
 // --- Components ---
 
 const Navbar = () => {
@@ -758,7 +777,103 @@ const ConsultationSurvey = () => (
   </section>
 );
 
-const Pricing = () => {
+// Модальное окно выбора способа оплаты
+const PaymentModal = ({ 
+  isOpen, 
+  onClose, 
+  planName 
+}: { 
+  isOpen: boolean; 
+  onClose: () => void; 
+  planName: string | null;
+}) => {
+  if (!isOpen || !planName) return null;
+
+  const links = paymentLinks[planName];
+  if (!links) return null;
+
+  return (
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+      <div 
+        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      
+      <div className="relative bg-[#1a1a1a] rounded-3xl border border-white/10 p-8 md:p-10 max-w-md w-full">
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
+        >
+          <X className="w-5 h-5 text-zinc-400" />
+        </button>
+
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CreditCard className="w-8 h-8 text-orange-500" />
+          </div>
+          <h3 className="text-2xl font-bold text-white mb-2">Выбери способ оплаты</h3>
+          <p className="text-zinc-400">Тариф: <span className="text-orange-500 font-semibold">{planName}</span></p>
+        </div>
+
+        <div className="space-y-3">
+          <a 
+            href={links.rub}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 w-full p-4 bg-[#252525] hover:bg-[#2a2a2a] border border-white/5 hover:border-orange-500/30 rounded-xl transition-all group"
+          >
+            <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
+              <span className="text-2xl">🇷🇺</span>
+            </div>
+            <div className="flex-grow text-left">
+              <div className="text-white font-bold">Рубли (₽)</div>
+              <div className="text-zinc-500 text-sm">Карты РФ, СБП</div>
+            </div>
+            <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-orange-500 transition-colors" />
+          </a>
+
+          <a 
+            href={links.eur}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 w-full p-4 bg-[#252525] hover:bg-[#2a2a2a] border border-white/5 hover:border-orange-500/30 rounded-xl transition-all group"
+          >
+            <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
+              <span className="text-2xl">🇪🇺</span>
+            </div>
+            <div className="flex-grow text-left">
+              <div className="text-white font-bold">Евро (€)</div>
+              <div className="text-zinc-500 text-sm">Иностранные карты</div>
+            </div>
+            <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-orange-500 transition-colors" />
+          </a>
+
+          <a 
+            href={links.crypto}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 w-full p-4 bg-[#252525] hover:bg-[#2a2a2a] border border-white/5 hover:border-orange-500/30 rounded-xl transition-all group"
+          >
+            <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
+              <span className="text-2xl">₿</span>
+            </div>
+            <div className="flex-grow text-left">
+              <div className="text-white font-bold">Криптовалюта</div>
+              <div className="text-zinc-500 text-sm">USDT, BTC, ETH</div>
+            </div>
+            <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-orange-500 transition-colors" />
+          </a>
+        </div>
+
+        <p className="text-center text-zinc-600 text-xs mt-6">
+          🔒 Безопасная оплата через Telegram
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => {
   const plans = [
     { 
       name: "Самостоятельный", 
@@ -871,7 +986,7 @@ const Pricing = () => {
 
               <div className="mt-auto">
                 <button 
-                  onClick={() => window.location.href = 'https://t.me/ofm_daddy'}
+                  onClick={() => onSelectPlan(plan.name)}
                   className={`w-full py-5 rounded-2xl font-black text-base uppercase tracking-wider transition-all duration-300 mb-4 ${plan.isPopular ? 'bg-orange-500 text-white hover:bg-orange-600 orange-glow' : 'border border-white/20 text-white hover:bg-white/5'}`}
                 >
                   {plan.cta}
@@ -989,6 +1104,25 @@ const Footer = () => (
 // --- Main App ---
 
 const App: React.FC = () => {
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+
+  const handleSelectPlan = (planName: string) => {
+    setSelectedPlan(planName);
+    setIsPaymentModalOpen(true);
+  };
+
+  useEffect(() => {
+    if (isPaymentModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isPaymentModalOpen]);
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -1002,10 +1136,17 @@ const App: React.FC = () => {
       <Reviews />
       <FAQ />
       <ConsultationSurvey />
-      <Pricing />
+      <Pricing onSelectPlan={handleSelectPlan} />
       <Guarantee />
       <FinalCTA />
       <Footer />
+      
+      {/* Payment Modal */}
+      <PaymentModal 
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+        planName={selectedPlan}
+      />
       
       {/* Scroll Progress Bar */}
       <div 
@@ -1028,7 +1169,6 @@ const App: React.FC = () => {
         }
         
         @media (max-width: 1023px) {
-          /* Additional styles to prevent mobile button layout break */
           .glass {
             backdrop-filter: blur(20px);
           }
