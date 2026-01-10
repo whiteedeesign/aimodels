@@ -59,7 +59,7 @@ const Navbar = () => {
           <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
             <Cpu className="text-white w-5 h-5" />
           </div>
-          Neural<span className="text-orange-500">Daddy</span>
+          Ai<span className="text-orange-500">Model</span>Club
         </a>
 
         {/* Desktop Links */}
@@ -185,7 +185,7 @@ const Hero = () => (
     <Reveal>
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6">
         <Zap className="w-3.5 h-3.5 fill-current" />
-        ⚡ ОГРАНИЧЕННЫЙ НАБОР — ОСТАЛОСЬ 7 ДНЕЙ
+        ОГРАНИЧЕННЫЙ НАБОР — ОСТАЛОСЬ 7 ДНЕЙ
       </div>
     </Reveal>
 
@@ -220,7 +220,7 @@ const Hero = () => (
         Забронировать место →
       </a>
       <p className="text-zinc-500 text-sm font-medium mb-6">
-        ⚡ Осталось 22 места • Продажи закрываются 23 января
+        ⚡ Осталось 22 места • До закрытия продаж 7 дней
       </p>
       <Timer />
     </Reveal>
