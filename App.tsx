@@ -192,13 +192,13 @@ const Hero = () => (
     <Reveal delay={50}>
       <div className="flex flex-wrap justify-center gap-4 mb-8">
         <span className="flex items-center gap-2 text-xs font-bold text-zinc-400 bg-white/5 px-4 py-1.5 rounded-full border border-white/5">
-          <Lock size={14} className="text-orange-500" /> 🔒 Анонимно
+          <Lock size={14} className="text-orange-500" /> Анонимно
         </span>
         <span className="flex items-center gap-2 text-xs font-bold text-zinc-400 bg-white/5 px-4 py-1.5 rounded-full border border-white/5">
-          <Globe size={14} className="text-orange-500" /> 🌍 Из любой точки мира
+          <Globe size={14} className="text-orange-500" /> Из любой точки мира
         </span>
         <span className="flex items-center gap-2 text-xs font-bold text-zinc-400 bg-white/5 px-4 py-1.5 rounded-full border border-white/5">
-          <CreditCard size={14} className="text-orange-500" /> 💳 Без вложений на старт
+          <CreditCard size={14} className="text-orange-500" /> Без вложений на старт
         </span>
       </div>
     </Reveal>
@@ -233,7 +233,7 @@ const FreeLesson = () => (
       <Reveal>
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6">
           <Gift className="w-3.5 h-3.5 fill-current" />
-          🎁 БЕСПЛАТНО
+          БЕСПЛАТНО
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
           Начни с <span className="text-orange-500">бесплатного</span> урока
