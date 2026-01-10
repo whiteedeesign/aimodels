@@ -359,7 +359,7 @@ const Expert = () => (
       <Reveal className="relative">
         <div className="aspect-square rounded-3xl overflow-hidden glass border border-white/10 relative">
           <img 
-            src="https://ibb.co/YgwnSf8?q=80&w=2000&auto=format&fit=crop" 
+            src="https://i.ibb.co/WCj8XBF/a06aba33-nano-4-K.jpg?q=80&w=2000&auto=format&fit=crop" 
             alt="Expert" 
             className="w-full h-full object-cover transition-all duration-700"
           />
