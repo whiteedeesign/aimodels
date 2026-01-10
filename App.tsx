@@ -116,8 +116,11 @@ const Timer = () => {
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0, isExpired: false });
 
   useEffect(() => {
-    // Установить дату окончания — 23 января 2025, 23:59:59
-    const targetDate = new Date('2025-01-23T23:59:59').getTime();
+    // Таймер на 7 дней вперёд от текущей даты
+const targetDate = new Date();
+targetDate.setDate(targetDate.getDate() + 7);
+targetDate.setHours(23, 59, 59, 0);
+const targetTime = targetDate.getTime();
 
     const calculateTime = () => {
       const now = new Date().getTime();
@@ -182,7 +185,7 @@ const Hero = () => (
     <Reveal>
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6">
         <Zap className="w-3.5 h-3.5 fill-current" />
-        ⚡ СТАРТ ПРОДАЖ — ЗАКРЫТИЕ 23 ЯНВАРЯ
+        ⚡ ОГРАНИЧЕННЫЙ НАБОР — ОСТАЛОСЬ 7 ДНЕЙ
       </div>
     </Reveal>
 
@@ -356,9 +359,9 @@ const Expert = () => (
       <Reveal className="relative">
         <div className="aspect-square rounded-3xl overflow-hidden glass border border-white/10 relative">
           <img 
-            src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop" 
+            src="/images/expert-photo.jpg" 
             alt="Expert" 
-            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+            className="w-full h-full object-cover transition-all duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
           <div className="absolute bottom-8 left-8">
@@ -830,7 +833,7 @@ const Pricing = () => {
       <Reveal>
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Выбери свой <span className="text-orange-500">формат</span> обучения</h2>
-          <p className="text-zinc-400 text-lg mb-2">Продажи закрываются 23 января в 23:59</p>
+          <p className="text-zinc-400 text-lg mb-2">Количество мест ограничено</p>
           <p className="text-orange-500 font-bold uppercase tracking-widest text-sm">
             ⚡ Осталось мест: Продвинутый — 20 | Менторство — 2
           </p>
@@ -943,7 +946,7 @@ const FinalCTA = () => (
             </div>
           </div>
           <p className="text-zinc-500 text-sm font-medium mt-2">
-            Продажи закрываются 23 января в 23:59
+            Количество мест ограничено
           </p>
         </div>
       </Reveal>
