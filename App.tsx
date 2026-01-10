@@ -961,7 +961,7 @@ const Footer = () => (
         <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
           <Cpu className="text-white w-5 h-5" />
         </div>
-        Neural<span className="text-orange-500">Daddy</span>
+        Ai<span className="text-orange-500">Model</span>Club
       </div>
       
       <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-zinc-500 font-medium">
