@@ -239,7 +239,7 @@ const Hero = () => (
         Забронировать место →
       </a>
       <p className="text-zinc-500 text-sm font-medium mb-6">
-        ⚡ Осталось 12/22 мест • До закрытия продаж 7 дней
+        ⚡ Осталось 8/22 мест • До закрытия продаж 7 дней
       </p>
       <Timer />
     </Reveal>
@@ -919,7 +919,7 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => 
         { text: "Доступ навсегда", included: true },
       ],
       cta: "Забронировать место →",
-      footer: "⚡ Осталось 11/20 мест"
+      footer: "⚡ Осталось 7/20 мест"
     },
     { 
       name: "Менторство", 
@@ -1060,7 +1060,7 @@ const FinalCTA = () => (
               Забронировать место →
             </a>
             <div className="flex items-center gap-2 text-orange-500 font-bold uppercase tracking-widest text-sm animate-pulse">
-              ⚡ Осталось 12/22 мест
+              ⚡ Осталось 8/22 мест
             </div>
           </div>
           <p className="text-zinc-500 text-sm font-medium mt-2">
