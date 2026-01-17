@@ -137,7 +137,7 @@ const Timer = () => {
   useEffect(() => {
     // Таймер на 7 дней вперёд от текущей даты
 const targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 7);
+targetDate.setDate(targetDate.getDate() + 5);
 targetDate.setHours(23, 59, 59, 0);
 const targetTime = targetDate.getTime();
 
@@ -204,7 +204,7 @@ const Hero = () => (
     <Reveal>
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6">
         <Zap className="w-3.5 h-3.5 fill-current" />
-        ОГРАНИЧЕННЫЙ НАБОР — ОСТАЛОСЬ 7 ДНЕЙ
+        ОГРАНИЧЕННЫЙ НАБОР — ОСТАЛОСЬ 5 ДНЕЙ
       </div>
     </Reveal>
 
@@ -239,7 +239,7 @@ const Hero = () => (
         Забронировать место →
       </a>
       <p className="text-zinc-500 text-sm font-medium mb-6">
-        ⚡ Осталось 8/22 мест • До закрытия продаж 7 дней
+        ⚡ Осталось 8/22 мест • До закрытия продаж 5 дней
       </p>
       <Timer />
     </Reveal>
