@@ -224,7 +224,7 @@ const Hero = () => (
     
     <Reveal delay={100}>
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.1] max-w-5xl tracking-tight">
-        Запусти свою <span className="text-orange-500">AI-модель</span> и выходи на доход <span className="text-orange-500">$3,000–$10,000/мес</span>
+        Запусти свою <span className="text-orange-500">AI-модель</span> и систему монетизации <span className="text-orange-500">за 7 дней</span>
       </h1>
     </Reveal>
     
@@ -953,7 +953,7 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => 
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Выбери свой <span className="text-orange-500">формат</span> обучения</h2>
           <p className="text-zinc-400 text-lg mb-2">Количество мест ограничено</p>
           <p className="text-orange-500 font-bold uppercase tracking-widest text-sm">
-            ⚡ Осталось мест: Продвинутый — 11 | Менторство — 1
+            ⚡ Осталось мест: Продвинутый — 7 | Менторство — 1
           </p>
         </div>
       </Reveal>
