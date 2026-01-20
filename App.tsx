@@ -137,7 +137,7 @@ const Timer = () => {
   useEffect(() => {
     // Таймер на 7 дней вперёд от текущей даты
 const targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 5);
+targetDate.setDate(targetDate.getDate() + 1);
 targetDate.setHours(23, 59, 59, 0);
 const targetTime = targetDate.getTime();
 
@@ -204,7 +204,7 @@ const Hero = () => (
     <Reveal>
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6">
         <Zap className="w-3.5 h-3.5 fill-current" />
-        ОГРАНИЧЕННЫЙ НАБОР — ОСТАЛОСЬ 5 ДНЕЙ
+        ОГРАНИЧЕННЫЙ НАБОР
       </div>
     </Reveal>
 
@@ -230,7 +230,7 @@ const Hero = () => (
     
     <Reveal delay={200}>
       <p className="text-zinc-400 text-lg md:text-xl max-w-3xl mb-12 leading-relaxed">
-        Пошаговая система от практика с доходом $10,000+/мес, которая работает даже если ты никогда не работал с нейросетями
+        Пошаговая система, которая работает даже если ты никогда не работал с нейросетями
       </p>
     </Reveal>
 
@@ -239,7 +239,7 @@ const Hero = () => (
         Забронировать место →
       </a>
       <p className="text-zinc-500 text-sm font-medium mb-6">
-        ⚡ Осталось 8/22 мест • До закрытия продаж 5 дней
+        ⚡Время ограничено
       </p>
       <Timer />
     </Reveal>
@@ -919,7 +919,7 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => 
         { text: "Доступ навсегда", included: true },
       ],
       cta: "Забронировать место →",
-      footer: "⚡ Осталось 7/20 мест"
+      footer: "⚡ Ограниченное кол-во мест"
     },
     { 
       name: "Менторство", 
@@ -942,7 +942,7 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => 
         { text: "Доступ навсегда", included: true },
       ],
       cta: "Забронировать место →",
-      footer: "⚡ Осталось 1/2 мест"
+      footer: "⚡ Ограниченное кол-во мест"
     }
   ];
 
@@ -953,7 +953,7 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => 
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Выбери свой <span className="text-orange-500">формат</span> обучения</h2>
           <p className="text-zinc-400 text-lg mb-2">Количество мест ограничено</p>
           <p className="text-orange-500 font-bold uppercase tracking-widest text-sm">
-            ⚡ Осталось мест: Продвинутый — 7 | Менторство — 1
+            ⚡ Ограниченное кол-во мест
           </p>
         </div>
       </Reveal>
@@ -1060,7 +1060,7 @@ const FinalCTA = () => (
               Забронировать место →
             </a>
             <div className="flex items-center gap-2 text-orange-500 font-bold uppercase tracking-widest text-sm animate-pulse">
-              ⚡ Осталось 8/22 мест
+              ⚡Успей забрать своё место
             </div>
           </div>
           <p className="text-zinc-500 text-sm font-medium mt-2">
