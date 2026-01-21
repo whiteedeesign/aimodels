@@ -5,16 +5,11 @@ import {
   Target, 
   TrendingUp, 
   Cpu, 
-  Users, 
   CheckCircle, 
   ArrowRight, 
   ChevronDown, 
   ShieldCheck, 
   Star,
-  MessageCircle,
-  Briefcase,
-  Layers,
-  Award,
   Lock,
   Globe,
   CreditCard,
@@ -30,12 +25,11 @@ import {
   Instagram,
   Send,
   Menu,
-  Video,
   PhoneCall,
-  Calendar
+  Calendar,
+  ClipboardCheck
 } from 'lucide-react';
 import { Reveal } from './components/Reveal';
-import { Feature, PricingPlan, FAQItem, ProgramModule } from './types';
 
 // Ссылки на оплату для разных тарифов и способов
 const paymentLinks: Record<string, { rub: string; eur: string; crypto: string }> = {
@@ -43,16 +37,6 @@ const paymentLinks: Record<string, { rub: string; eur: string; crypto: string }>
     rub: "https://t.me/tribute/app?startapp=sKT4",
     eur: "https://t.me/tribute/app?startapp=sKT5",
     crypto: "https://t.me/m/zmJlaKr0YzRi"
-  },
-  "Продвинутый": {
-    rub: "https://t.me/tribute/app?startapp=sKSZ",
-    eur: "https://t.me/tribute/app?startapp=sKT0",
-    crypto: "https://t.me/m/A3z1vlHUZGYy"
-  },
-  "Менторство": {
-    rub: "https://t.me/tribute/app?startapp=sKT7",
-    eur: "https://t.me/tribute/app?startapp=sKT6",
-    crypto: "https://t.me/m/t0yhGZSBMzA6"
   }
 };
 
@@ -131,69 +115,6 @@ const Navbar = () => {
   );
 };
 
-const Timer = () => {
-  const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0, isExpired: false });
-
-  useEffect(() => {
-    // Таймер на 7 дней вперёд от текущей даты
-const targetDate = new Date();
-targetDate.setDate(targetDate.getDate() + 1);
-targetDate.setHours(23, 59, 59, 0);
-const targetTime = targetDate.getTime();
-
-    const calculateTime = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        setTimeLeft({
-          d: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          h: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          m: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          s: Math.floor((difference % (1000 * 60)) / 1000),
-          isExpired: false
-        });
-      } else {
-        setTimeLeft({ d: 0, h: 0, m: 0, s: 0, isExpired: true });
-      }
-    };
-
-    calculateTime();
-    const interval = setInterval(calculateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const format = (n: number) => n.toString().padStart(2, '0');
-
-  return (
-    <div className="flex flex-col items-center">
-      <div className="flex gap-3 md:gap-4">
-        {[
-          { label: 'ДНЕЙ', val: format(timeLeft.d), id: 'days' },
-          { label: 'ЧАСОВ', val: format(timeLeft.h), id: 'hours' },
-          { label: 'МИНУТ', val: format(timeLeft.m), id: 'minutes' },
-          { label: 'СЕКУНД', val: format(timeLeft.s), id: 'seconds' }
-        ].map((item, i) => (
-          <div key={i} className="flex flex-col items-center">
-            <div 
-              id={item.id}
-              className={`w-14 h-14 md:w-16 md:h-16 glass rounded-xl flex items-center justify-center text-xl md:text-2xl font-bold timer-digit border transition-colors ${timeLeft.isExpired ? 'border-red-500/30 text-zinc-600' : 'border-white/10'}`}
-            >
-              {item.val}
-            </div>
-            <span className="text-[9px] md:text-[10px] uppercase tracking-wider mt-2 text-zinc-500 font-bold">{item.label}</span>
-          </div>
-        ))}
-      </div>
-      {timeLeft.isExpired && (
-        <div className="mt-4 text-orange-500 font-bold animate-pulse uppercase tracking-widest text-sm">
-          Продажи закрыты
-        </div>
-      )}
-    </div>
-  );
-};
-
 const Hero = () => (
   <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex flex-col items-center justify-center text-center px-6">
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10 overflow-hidden opacity-20 pointer-events-none">
@@ -204,7 +125,7 @@ const Hero = () => (
     <Reveal>
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6">
         <Zap className="w-3.5 h-3.5 fill-current" />
-        ОГРАНИЧЕННЫЙ НАБОР
+        Пошаговая система запуска
       </div>
     </Reveal>
 
@@ -217,261 +138,39 @@ const Hero = () => (
           <Globe size={14} className="text-orange-500" /> Из любой точки мира
         </span>
         <span className="flex items-center gap-2 text-xs font-bold text-zinc-400 bg-white/5 px-4 py-1.5 rounded-full border border-white/5">
-          <CreditCard size={14} className="text-orange-500" /> Без вложений на старт
+          <CreditCard size={14} className="text-orange-500" /> Минимум вложений
         </span>
       </div>
     </Reveal>
     
     <Reveal delay={100}>
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.1] max-w-5xl tracking-tight">
-        Запусти свою <span className="text-orange-500">AI-модель</span> и систему монетизации <span className="text-orange-500">за 7 дней</span>
+        Собери и монетизируй свою <span className="text-orange-500">AI‑модель</span> по шагам
       </h1>
     </Reveal>
     
     <Reveal delay={200}>
       <p className="text-zinc-400 text-lg md:text-xl max-w-3xl mb-12 leading-relaxed">
-        Пошаговая система, которая работает даже если ты никогда не работал с нейросетями
+        Пошаговая система от создания модели до продаж, которая подходит как новичкам, так и опытным.
       </p>
     </Reveal>
 
-    <Reveal delay={300} className="flex flex-col items-center">
-      <a href="#pricing" className="group px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-lg font-bold transition-all orange-glow flex items-center gap-3 mb-4">
-        Забронировать место →
+    <Reveal delay={300} className="flex flex-wrap items-center justify-center gap-4">
+      <a href="#pricing" className="px-8 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/10 rounded-xl text-lg font-bold transition-all flex items-center gap-3">
+        Купить "Самостоятельный"
       </a>
-      <p className="text-zinc-500 text-sm font-medium mb-6">
-        ⚡Время ограничено
-      </p>
-      <Timer />
+      
+      <a href="#selection" className="px-8 py-5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-lg font-bold transition-all orange-glow flex items-center gap-3">
+        Подать заявку на "Продвинутый"
+      </a>
     </Reveal>
+
+      <Reveal delay={400} className="mt-8 text-zinc-500 text-sm italic">
+      Гарантия результата от ваших действий и системного подхода
+      </Reveal>
+    
   </section>
 );
-
-const FreeLesson = () => (
-  <section className="py-24 px-6 bg-[#111111]/30">
-    <div className="max-w-5xl mx-auto text-center">
-      <Reveal>
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6">
-          <Gift className="w-3.5 h-3.5 fill-current" />
-          БЕСПЛАТНО
-        </div>
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
-          Начни с <span className="text-orange-500">бесплатного</span> урока
-        </h2>
-        <p className="text-zinc-400 text-lg mb-12 max-w-2xl mx-auto">
-          13 минут, которые покажут тебе как устроен этот бизнес изнутри
-        </p>
-        <p className="text-zinc-400 text-lg mb-12 max-w-2xl mx-auto">
-          Видео находится на Youtube, поэтому включи VPN, чтобы оно отображалось
-        </p>
-      </Reveal>
-      
-      <Reveal delay={100}>
-        <div 
-          className="video-container shadow-[0_0_50px_rgba(249,115,22,0.15)] group"
-          style={{ 
-            position: 'relative', 
-            paddingBottom: '56.25%', 
-            height: 0, 
-            overflow: 'hidden', 
-            maxWidth: '900px', 
-            margin: '0 auto', 
-            borderRadius: '12px' 
-          }}
-        >
-          <iframe 
-            style={{ 
-              position: 'absolute', 
-              top: 0, 
-              left: 0, 
-              width: '100%', 
-              height: '100%', 
-              borderRadius: '12px' 
-            }}
-            src="https://www.youtube.com/embed/LUMa2xRO1Lk?rel=0&modestbranding=1" 
-            title="Бесплатный урок Neural Daddy" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-          <noscript>
-            <a href="https://www.youtube.com/watch?v=LUMa2xRO1Lk" target="_blank" rel="noopener noreferrer">
-              <img src="https://img.youtube.com/vi/LUMa2xRO1Lk/maxresdefault.jpg" alt="Смотреть видео" />
-            </a>
-          </noscript>
-        </div>
-      </Reveal>
-
-      <Reveal delay={200}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
-          {[
-            "Без воды — только практика",
-            "Реальные примеры заработка",
-            "Пошаговый разбор ниши"
-          ].map((item, i) => (
-            <div key={i} className="flex items-center justify-center gap-3 text-zinc-300 font-medium">
-              <CheckCircle className="text-orange-500 w-5 h-5 shrink-0" />
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
-      </Reveal>
-    </div>
-  </section>
-);
-
-const PainPoints = () => {
-  const pains = [
-    { 
-      title: "Купил курс — результата нет", 
-      desc: "Создал AI-модель по урокам из интернета, но не понимаешь как привлечь подписчиков и начать зарабатывать",
-      icon: <CircleDollarSign className="text-orange-500 w-6 h-6" />
-    },
-    { 
-      title: "Тратишь время впустую", 
-      desc: "Пытаешься разобраться сам, тестируешь разные подходы месяцами, пока другие уже выходят на доход",
-      icon: <RefreshCw className="text-orange-500 w-6 h-6" />
-    },
-    { 
-      title: "Не понимаешь как растут другие", 
-      desc: "Смотришь на успешные аккаунты с тысячами подписчиков и не можешь понять, что они делают по-другому",
-      icon: <TrendingDown className="text-orange-500 w-6 h-6" />
-    },
-    { 
-      title: "Сомнения останавливают", 
-      desc: "\"Слишком много конкуренции\", \"Это сложно\", \"Наверное у меня не получится\" — знакомые мысли?",
-      icon: <HelpCircle className="text-orange-500 w-6 h-6" />
-    }
-  ];
-
-  return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <Reveal>
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 italic">Узнаёшь себя?</h2>
-        </div>
-      </Reveal>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-        {pains.map((pain, i) => (
-          <Reveal key={i} delay={i * 100}>
-            <div className="p-8 h-full glass rounded-2xl hover:bg-[#1a1a1a] transition-all border border-white/5 group hover:border-orange-500/20">
-              <div className="w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                {pain.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-white">{pain.title}</h3>
-              <p className="text-[#a1a1aa] leading-relaxed">{pain.desc}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <Reveal delay={400}>
-        <div className="text-center text-zinc-500 italic text-xl">
-          "Я прошёл через всё это сам. И создал систему, которая работает."
-        </div>
-      </Reveal>
-    </section>
-  );
-};
-
-const Expert = () => (
-  <section id="about" className="py-24 px-6 bg-[#111111]/50">
-    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <Reveal className="relative">
-        <div className="aspect-square rounded-3xl overflow-hidden glass border border-white/10 relative">
-          <img 
-            src="https://i.ibb.co/WCj8XBF/a06aba33-nano-4-K.jpg?q=80&w=2000&auto=format&fit=crop" 
-            alt="Expert" 
-            className="w-full h-full object-cover transition-all duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-          <div className="absolute bottom-8 left-8">
-            <div className="text-2xl font-bold text-white">Neural Daddy</div>
-            <div className="text-orange-500 font-medium">Founder & Mentor</div>
-          </div>
-        </div>
-        <div className="absolute -top-6 -right-6 w-32 h-32 glass rounded-2xl flex flex-col items-center justify-center border border-orange-500/20 orange-glow text-center px-2">
-          <div className="text-2xl font-bold text-orange-500">$10K+</div>
-          <div className="text-[10px] uppercase font-bold text-zinc-400">в месяц</div>
-        </div>
-      </Reveal>
-
-      <Reveal delay={200}>
-        <div className="inline-block px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-xs font-bold uppercase mb-6">
-          КТО ВЕДЁТ ОБУЧЕНИЕ
-        </div>
-        <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">
-          Практик, <span className="text-orange-500 font-black">не теоретик</span>
-        </h2>
-        <p className="text-zinc-400 text-lg mb-6 leading-relaxed">
-          Я изучил эту нишу методом проб и ошибок. Протестировал десятки подходов, слил бюджеты на рекламу, которая не работает, и в итоге выстроил систему, которая приносит стабильный результат.
-        </p>
-        <p className="text-zinc-400 text-lg mb-8 leading-relaxed">
-          Теперь я упаковал весь свой опыт в пошаговую программу, чтобы ты прошёл этот путь за недели, а не за год.
-        </p>
-        <div className="space-y-4">
-          {[
-            "$10,000+/мес — текущий стабильный доход на AI-моделях",
-            "3 успешные модели в управлении",
-            "1 год в нише — начинал с полного нуля",
-            "20 учеников уже обучено по этой системе"
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-3">
-              <CheckCircle className="text-orange-500 w-5 h-5 shrink-0" />
-              <span className="text-zinc-300 font-medium">{item}</span>
-            </div>
-          ))}
-        </div>
-      </Reveal>
-    </div>
-  </section>
-);
-
-const USP = () => {
-  const cards = [
-    { 
-      icon: <Target />, 
-      title: "Фокус на монетизацию", 
-      text: "Большинство курсов учат создавать модель. Моя система учит зарабатывать на ней. 80% программы — это трафик, продажи и масштабирование." 
-    },
-    { 
-      icon: <Globe />, 
-      title: "Доступ к рынку USA", 
-      text: "Подробные инструкции по настройке VPN, американских аккаунтов и работе с платёжеспособной западной аудиторией." 
-    },
-    { 
-      icon: <Package />, 
-      title: "Всё включено", 
-      text: "500+ промптов, 50 скриптов продаж, контент-план на 30 дней, чек-листы. Не нужно ничего искать самому — бери и применяй." 
-    }
-  ];
-
-  return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <Reveal>
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-          Почему эта система <span className="text-orange-500">работает</span>
-        </h2>
-      </Reveal>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {cards.map((card, i) => (
-          <Reveal key={i} delay={i * 100}>
-            <div className="p-8 glass rounded-2xl h-full border border-white/5 group hover:border-orange-500/30 transition-all flex flex-col">
-              <div className="w-14 h-14 bg-zinc-800 rounded-xl flex items-center justify-center shrink-0 mb-6 group-hover:scale-110 transition-transform">
-                <div className="text-orange-500">
-                  {React.cloneElement(card.icon as React.ReactElement, { size: 28 })}
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-3">{card.title}</h3>
-              <p className="text-[#a1a1aa] leading-relaxed">{card.text}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-    </section>
-  );
-};
 
 const Program = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
