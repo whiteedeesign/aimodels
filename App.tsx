@@ -1,11 +1,11 @@
 
-import React, { useState, useEffect } from 'react';
 import { 
   Zap, Target, TrendingUp, Cpu, Users, CheckCircle, ArrowRight, ChevronDown, 
   ShieldCheck, Star, Briefcase, Lock, Globe, CreditCard, RefreshCw, 
   TrendingDown, HelpCircle, Package, Gift, DollarSign, Quote, X, Instagram, 
-  Send, Menu, PhoneCall // Убрал Timer из импорта, если он был отдельным файлом - удали
+  Send, Menu, PhoneCall, CircleDollarSign // <--- ДОБАВИЛ СЮДА
 } from 'lucide-react';
+
 import { Reveal } from './components/Reveal';
 import { Feature, PricingPlan, FAQItem, ProgramModule } from './types';
 
