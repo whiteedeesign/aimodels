@@ -1,15 +1,42 @@
 
+import React, { useState, useEffect } from 'react';
 import { 
-  Zap, Target, TrendingUp, Cpu, Users, CheckCircle, ArrowRight, ChevronDown, 
-  ShieldCheck, Star, Briefcase, Lock, Globe, CreditCard, RefreshCw, 
-  TrendingDown, HelpCircle, Package, Gift, DollarSign, Quote, X, Instagram, 
-  Send, Menu, PhoneCall, CircleDollarSign // <--- ДОБАВИЛ СЮДА
+  Zap, 
+  Target, 
+  TrendingUp, 
+  Cpu, 
+  Users, 
+  CheckCircle, 
+  ArrowRight, 
+  ChevronDown, 
+  ShieldCheck, 
+  Star,
+  MessageCircle,
+  Briefcase,
+  Layers,
+  Award,
+  Lock,
+  Globe,
+  CreditCard,
+  CircleDollarSign,
+  RefreshCw,
+  TrendingDown,
+  HelpCircle,
+  Package,
+  Gift,
+  DollarSign,
+  Quote,
+  X,
+  Instagram,
+  Send,
+  Menu,
+  Video,
+  PhoneCall,
+  Calendar
 } from 'lucide-react';
-
 import { Reveal } from './components/Reveal';
 import { Feature, PricingPlan, FAQItem, ProgramModule } from './types';
 
-const APPLICATION_FORM_URL = "https://forms.gle/LPPHNkrJeSTaC87C6";
 // Ссылки на оплату для разных тарифов и способов
 const paymentLinks: Record<string, { rub: string; eur: string; crypto: string }> = {
   "Самостоятельный": {
@@ -175,10 +202,9 @@ const Hero = () => (
     </div>
     
     <Reveal>
-      {/* Мягкий социальный пруф вместо "ОГРАНИЧЕННЫЙ НАБОР" */}
       <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6">
         <Zap className="w-3.5 h-3.5 fill-current" />
-        СИСТЕМА 2025 ГОДА
+        ОГРАНИЧЕННЫЙ НАБОР
       </div>
     </Reveal>
 
@@ -191,31 +217,31 @@ const Hero = () => (
           <Globe size={14} className="text-orange-500" /> Из любой точки мира
         </span>
         <span className="flex items-center gap-2 text-xs font-bold text-zinc-400 bg-white/5 px-4 py-1.5 rounded-full border border-white/5">
-          <CreditCard size={14} className="text-orange-500" /> Старт без вложений
+          <CreditCard size={14} className="text-orange-500" /> Без вложений на старт
         </span>
       </div>
     </Reveal>
     
     <Reveal delay={100}>
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.1] max-w-5xl tracking-tight">
-        Создай свою <span className="text-orange-500">AI-модель</span> и начни монетизацию <span className="text-orange-500">системно</span>
+        Запусти свою <span className="text-orange-500">AI-модель</span> и систему монетизации <span className="text-orange-500">за 7 дней</span>
       </h1>
     </Reveal>
     
     <Reveal delay={200}>
       <p className="text-zinc-400 text-lg md:text-xl max-w-3xl mb-12 leading-relaxed">
-        Пошаговая инструкция: от генерации первого фото до вывода денег на карту. 
-        <br className="hidden md:block" /> Без знания кода и сложного оборудования.
+        Пошаговая система, которая работает даже если ты никогда не работал с нейросетями
       </p>
     </Reveal>
 
-    <Reveal delay={300} className="flex flex-col sm:flex-row items-center gap-4">
-      <a href="#pricing" className="px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-lg font-bold transition-all orange-glow flex items-center gap-3">
-        Выбрать тариф <ArrowRight size={20} />
+    <Reveal delay={300} className="flex flex-col items-center">
+      <a href="#pricing" className="group px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-lg font-bold transition-all orange-glow flex items-center gap-3 mb-4">
+        Забронировать место →
       </a>
-      <a href="#program" className="px-10 py-5 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-xl text-lg font-bold transition-all flex items-center gap-3">
-        Смотреть программу
-      </a>
+      <p className="text-zinc-500 text-sm font-medium mb-6">
+        ⚡Время ограничено
+      </p>
+      <Timer />
     </Reveal>
   </section>
 );
@@ -362,13 +388,12 @@ const Expert = () => (
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
           <div className="absolute bottom-8 left-8">
             <div className="text-2xl font-bold text-white">Neural Daddy</div>
-            <div className="text-orange-500 font-medium">Practitioner & Mentor</div>
+            <div className="text-orange-500 font-medium">Founder & Mentor</div>
           </div>
         </div>
-        {/* Убрал плашку с $10k, заменил на количество кейсов или опыт */}
-        <div className="absolute -top-6 -right-6 glass p-4 rounded-2xl flex flex-col items-center justify-center border border-orange-500/20 orange-glow text-center">
-          <div className="text-2xl font-bold text-orange-500">Top 1%</div>
-          <div className="text-[10px] uppercase font-bold text-zinc-400">на площадках</div>
+        <div className="absolute -top-6 -right-6 w-32 h-32 glass rounded-2xl flex flex-col items-center justify-center border border-orange-500/20 orange-glow text-center px-2">
+          <div className="text-2xl font-bold text-orange-500">$10K+</div>
+          <div className="text-[10px] uppercase font-bold text-zinc-400">в месяц</div>
         </div>
       </Reveal>
 
@@ -377,17 +402,20 @@ const Expert = () => (
           КТО ВЕДЁТ ОБУЧЕНИЕ
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">
-          Практик, <span className="text-orange-500 font-black">а не теоретик</span>
+          Практик, <span className="text-orange-500 font-black">не теоретик</span>
         </h2>
         <p className="text-zinc-400 text-lg mb-6 leading-relaxed">
-          В отличие от курсов, пересказывающих справку Midjourney, я даю систему <b>монетизации</b>. Я сам ежедневно управляю моделями, тестирую новые связки трафика и знаю, что работает прямо сейчас, а что уже умерло.
+          Я изучил эту нишу методом проб и ошибок. Протестировал десятки подходов, слил бюджеты на рекламу, которая не работает, и в итоге выстроил систему, которая приносит стабильный результат.
+        </p>
+        <p className="text-zinc-400 text-lg mb-8 leading-relaxed">
+          Теперь я упаковал весь свой опыт в пошаговую программу, чтобы ты прошёл этот путь за недели, а не за год.
         </p>
         <div className="space-y-4">
           {[
-            "Управляю сеткой из 3 успешных AI-моделей",
-            "Реальный опыт монетизации на западном рынке (USA/Tier-1)",
-            "Система позволяет работать 2-3 часа в день после настройки",
-            "20+ учеников с подтвержденными результатами"
+            "$10,000+/мес — текущий стабильный доход на AI-моделях",
+            "3 успешные модели в управлении",
+            "1 год в нише — начинал с полного нуля",
+            "20 учеников уже обучено по этой системе"
           ].map((item, i) => (
             <div key={i} className="flex items-center gap-3">
               <CheckCircle className="text-orange-500 w-5 h-5 shrink-0" />
@@ -848,63 +876,73 @@ const PaymentModal = ({
   );
 };
 
-const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string, isApplication: boolean) => void }) => {
+const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => {
   const plans = [
     { 
       name: "Самостоятельный", 
       price: "$249", 
-      priceRub: "≈ 25,000 ₽", // Актуализируй курс примерно
+      priceRub: "≈ 20,000 ₽",
       badge: null,
       features: [
         { text: "Все 7 разделов обучения", included: true },
-        { text: "Доступ к базе промптов и скриптов", included: true },
-        { text: "Чек-листы запуска", included: true },
-        { text: "Доступ навсегда", included: true },
-        { text: "Без обратной связи", included: true, highlight: false }, // Честно пишем
+        { text: "Пошаговые видео-уроки", included: true },
+        { text: "500+ промптов для генерации", included: true },
+        { text: "50 скриптов продаж", included: true },
+        { text: "Контент-план на 30 дней", included: true },
+        { text: "Чек-листы для каждого этапа", included: true },
+        { text: "Доступ к материалам навсегда", included: true },
         { text: "Обновления программы", included: false },
-        { text: "Закрытый чат", included: false },
+        { text: "Личная поддержка", included: false },
+        { text: "Общий чат с учениками", included: false },
       ],
-      cta: "Купить доступ", // Прямое действие
-      ctaAction: "buy",
-      footer: "Моментальный доступ после оплаты",
+      cta: "Выбрать тариф",
+      footer: "Доступен всегда",
       isPopular: false
     },
     { 
       name: "Продвинутый", 
       price: "$549", 
-      priceRub: "≈ 55,000 ₽",
-      badge: "РЕКОМЕНДУЮ",
+      priceRub: "≈ 49,000 ₽",
+      badge: "ХИТ ПРОДАЖ",
       isPopular: true,
       features: [
         { text: "Всё из тарифа \"Самостоятельный\"", included: true },
-        { text: "Закрытый чат участников (Комьюнити)", included: true, highlight: true },
-        { text: "Моя личная поддержка в Telegram", included: true, highlight: true },
-        { text: "Все будущие обновления бесплатно", included: true },
-        { text: "Разбор домашних заданий", included: true },
-        { text: "База знаний по трафику (TikTok/Reels)", included: true },
+        { text: "Постоянные обновления программы", included: true },
+        { text: "Новые уроки и материалы бесплатно", included: true },
+        { text: "Личная поддержка в Telegram", included: true },
+        { text: "Ответы на вопросы в течение 24 часов", included: true },
+        { text: "Созвоны по запросу при необходимости", included: true },
+        { text: "Доступ в закрытый чат учеников", included: true },
+        { text: "Нетворкинг и обмен опытом", included: true },
+        { text: "Дополнительные материалы и кейсы", included: true },
+        { text: "Приоритетный доступ к новым урокам", included: true },
+        { text: "Доступ навсегда", included: true },
       ],
-      cta: "Подать заявку", // Фильтр
-      ctaAction: "apply",
-      footer: "Отбор через анкету",
-      highlightBorder: true
+      cta: "Забронировать место →",
+      footer: "⚡ Ограниченное кол-во мест"
     },
     { 
       name: "Менторство", 
       price: "$1,499", 
-      priceRub: "≈ 150,000 ₽",
-      badge: "ЛИЧНАЯ РАБОТА",
+      priceRub: "≈ 119,000 ₽",
+      badge: "PREMIUM",
       isPopular: false,
       features: [
-        { text: "Личное ведение до результата", included: true },
-        { text: "Созвоны 1-на-1 (Стратегия + Разборы)", included: true },
-        { text: "Помощь с настройкой всех аккаунтов «за руку»", included: true },
-        { text: "Персональный контент-план", included: true },
-        { text: "Доступ к моим личным ассистентам", included: true },
-        { text: "Прямой контакт 24/7", included: true },
+        { text: "Всё из тарифа \"Продвинутый\"", included: true },
+        { text: "Личная работа со мной 1 на 1", included: true },
+        { text: "Я сам инициирую созвоны и проверки", included: true },
+        { text: "Персональный план запуска модели", included: true },
+        { text: "Разбор твоей ситуации и стратегия", included: true },
+        { text: "Еженедельные созвоны по прогрессу", included: true },
+        { text: "Проверка и корректировка контента", included: true },
+        { text: "Помощь с настройкой всех аккаунтов", included: true },
+        { text: "Работаем вместе до первого результата", included: true },
+        { text: "Приоритетная поддержка 24/7", included: true },
+        { text: "Прямой доступ в личные сообщения", included: true },
+        { text: "Доступ навсегда", included: true },
       ],
-      cta: "Подать заявку",
-      ctaAction: "apply",
-      footer: "Только 2 места / мес"
+      cta: "Забронировать место →",
+      footer: "⚡ Ограниченное кол-во мест"
     }
   ];
 
@@ -912,50 +950,51 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string, isApplication:
     <section id="pricing" className="py-24 px-6 max-w-7xl mx-auto">
       <Reveal>
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Инвестиция в <span className="text-orange-500">свободу</span></h2>
-          <p className="text-zinc-400 text-lg">Выбери формат, который подходит под твои цели</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Выбери свой <span className="text-orange-500">формат</span> обучения</h2>
+          <p className="text-zinc-400 text-lg mb-2">Количество мест ограничено</p>
+          <p className="text-orange-500 font-bold uppercase tracking-widest text-sm">
+            ⚡ Ограниченное кол-во мест
+          </p>
         </div>
       </Reveal>
       
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
         {plans.map((plan, i) => (
           <Reveal key={i} delay={i * 100} className="h-full">
-            <div className={`h-full p-8 md:p-10 rounded-[2.5rem] border flex flex-col transition-all duration-500 relative ${plan.isPopular ? 'bg-[#1a1a1a] border-orange-500 shadow-[0_0_50px_rgba(249,115,22,0.1)] scale-105 z-10' : 'bg-[#111111] border-white/5 hover:border-white/10'}`}>
+            <div className={`h-full p-8 md:p-10 rounded-[2.5rem] border flex flex-col transition-all duration-500 ${plan.isPopular ? 'bg-[#1a1a1a] border-orange-500 relative orange-glow scale-105 z-10' : 'bg-[#111111] border-white/5 hover:border-white/10'}`}>
               {plan.badge && (
-                <div className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 text-xs font-bold rounded-full uppercase tracking-widest shadow-lg ${plan.badge === 'PREMIUM' ? 'bg-zinc-700 text-white' : 'bg-orange-500 text-white'}`}>
+                <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 text-xs font-black rounded-full uppercase tracking-[0.2em] shadow-lg ${plan.badge === 'PREMIUM' ? 'bg-zinc-700 text-zinc-100' : 'bg-orange-500 text-white'}`}>
                   {plan.badge}
                 </div>
               )}
               
-              <div className="mb-8 border-b border-white/5 pb-8">
-                <h3 className="text-2xl font-bold mb-2 text-white">{plan.name}</h3>
-                <div className="flex items-baseline gap-2">
-                  <div className="text-5xl font-black text-white">{plan.price}</div>
-                </div>
-                <div className="text-sm text-zinc-500 font-medium mt-1">{plan.priceRub}</div>
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold mb-4 text-white tracking-tight">{plan.name}</h3>
+                <div className="text-5xl font-black text-white mb-1">{plan.price}</div>
+                <div className="text-sm text-zinc-500 font-medium">{plan.priceRub}</div>
               </div>
 
               <div className="space-y-4 mb-10 flex-grow">
                 {plan.features.map((f, j) => (
-                  <div key={j} className={`flex items-start gap-3 ${f.included ? 'text-zinc-300' : 'text-zinc-700 line-through'}`}>
+                  <div key={j} className={`flex items-start gap-3 ${f.included ? 'text-zinc-300' : 'text-zinc-600 italic'}`}>
                     {f.included ? (
-                      <CheckCircle className={`w-5 h-5 shrink-0 mt-0.5 ${f.highlight ? 'text-orange-400' : 'text-orange-600'}`} />
+                      <CheckCircle className="text-orange-500 w-5 h-5 shrink-0 mt-0.5" />
                     ) : (
-                      <X className="w-5 h-5 shrink-0 mt-0.5" />
+                      <X className="text-zinc-600 w-5 h-5 shrink-0 mt-0.5" />
                     )}
-                    <span className={`text-sm leading-relaxed ${f.highlight ? 'text-white font-medium' : ''}`}>{f.text}</span>
+                    <span className="text-sm leading-relaxed">{f.text}</span>
                   </div>
                 ))}
               </div>
 
               <div className="mt-auto">
                 <button 
-                  onClick={() => onSelectPlan(plan.name, plan.ctaAction === 'apply')}
-                  className={`w-full py-4 rounded-xl font-bold text-base uppercase tracking-wider transition-all duration-300 mb-4 flex items-center justify-center gap-2 ${plan.isPopular ? 'bg-orange-500 text-white hover:bg-orange-600 orange-glow' : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'}`}
+                  onClick={() => onSelectPlan(plan.name)}
+                  className={`w-full py-5 rounded-2xl font-black text-base uppercase tracking-wider transition-all duration-300 mb-4 ${plan.isPopular ? 'bg-orange-500 text-white hover:bg-orange-600 orange-glow' : 'border border-white/20 text-white hover:bg-white/5'}`}
                 >
-                  {plan.cta} {plan.ctaAction === 'buy' ? <CreditCard size={18} /> : <ArrowRight size={18} />}
+                  {plan.cta}
                 </button>
-                <div className="text-center text-[10px] md:text-xs font-bold uppercase tracking-widest text-zinc-600">
+                <div className={`text-center text-xs font-bold uppercase tracking-widest ${plan.footer.includes('⚡') ? 'text-orange-500 animate-pulse' : 'text-zinc-600'}`}>
                   {plan.footer}
                 </div>
               </div>
@@ -970,17 +1009,36 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string, isApplication:
 const Guarantee = () => (
   <section className="py-24 px-6 max-w-5xl mx-auto text-center">
     <Reveal>
-      <div className="p-10 glass rounded-[2.5rem] border border-orange-500/20 relative overflow-hidden bg-[#111111]">
-        <ShieldCheck className="mx-auto text-orange-500 w-16 h-16 mb-6" />
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">Твой результат — <span className="text-orange-500">моя репутация</span></h2>
+      <div className="p-12 glass rounded-[2.5rem] border border-orange-500/30 relative overflow-hidden bg-[#111111]">
+        <div className="absolute -top-10 -right-10 p-4 opacity-[0.03] rotate-12 pointer-events-none">
+          <ShieldCheck size={280} className="text-orange-500" />
+        </div>
+        <div className="absolute -bottom-10 -left-10 p-4 opacity-[0.03] -rotate-12 pointer-events-none">
+          <ShieldCheck size={280} className="text-orange-500" />
+        </div>
         
-        <p className="text-zinc-300 text-lg mb-8 leading-relaxed max-w-3xl mx-auto">
-          Я не могу гарантировать, что ты станешь миллионером за день (это было бы обманом). 
-          Но я гарантирую качество системы. Если на тарифе <b>Advanced</b> или <b>Mentorship</b> ты выполнишь все задания, внедришь инструменты и столкнешься с трудностями — я лично подключусь и мы проведем аудит твоей воронки, чтобы найти ошибку.
+        <ShieldCheck className="mx-auto text-orange-500 w-16 h-16 mb-8" />
+        <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-tight">Гарантия первого <span className="text-orange-500">результата</span></h2>
+        
+        <p className="text-white text-lg md:text-2xl font-medium mb-4 leading-relaxed max-w-3xl mx-auto">
+          Если ты пройдёшь все модули, выполнишь задания и не получишь первых подписчиков в течение 30 дней — я лично разберу твою ситуацию на созвоне и дам индивидуальные рекомендации бесплатно.
+        </p>
+        
+        <p className="text-zinc-500 text-sm md:text-base mb-12 max-w-2xl mx-auto italic">
+          Распространяется на тарифы "Продвинутый" и "Менторство"
         </p>
 
-        <div className="inline-flex gap-2 items-center text-zinc-500 text-sm">
-          <CheckCircle size={16} /> Честный подход без «воздушных замков»
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-white/5">
+          {[
+            "Действует 30 дней после старта",
+            "Личный разбор на созвоне",
+            "Индивидуальные рекомендации"
+          ].map((item, i) => (
+            <div key={i} className="flex items-center justify-center gap-3 text-zinc-300">
+              <CheckCircle className="text-orange-500 w-5 h-5 shrink-0" />
+              <span className="text-sm font-bold uppercase tracking-wider">{item}</span>
+            </div>
+          ))}
         </div>
       </div>
     </Reveal>
@@ -1052,56 +1110,77 @@ const App: React.FC = () => {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
 
-  const handleSelectPlan = (planName: string, isApplication: boolean) => {
-    if (isApplication) {
-      // Логика для Advanced/Mentorship - ведем на Google Form
-      window.open(APPLICATION_FORM_URL, '_blank');
-    } else {
-      // Логика для Self - открываем модалку оплаты
-      setSelectedPlan(planName);
-      setIsPaymentModalOpen(true);
-    }
+  const handleSelectPlan = (planName: string) => {
+    setSelectedPlan(planName);
+    setIsPaymentModalOpen(true);
   };
 
+  useEffect(() => {
+    if (isPaymentModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isPaymentModalOpen]);
+
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-orange-500/30">
+    <div className="min-h-screen">
       <Navbar />
-      
-      <main>
-        <Hero />
-        {/* PainPoints поднимаем выше, сразу после Hero, чтобы создать потребность */}
-        <PainPoints /> 
-        
-        {/* USP переименуем в Outcome (Что получишь) - добавь этот компонент, если есть, или используй USP */}
-        <USP /> 
-        
-        {/* ТАРИФЫ ПОДНИМАЕМ! Люди из бота уже теплые, им интересно "сколько стоит" */}
-        <Pricing onSelectPlan={handleSelectPlan} />
-
-        <Cases />
-        <Reviews />
-        
-        {/* Program можно опустить чуть ниже, как "подтверждение экспертности" */}
-        <Program />
-        
-        <Expert />
-        <FAQ />
-        <ConsultationSurvey />
-        
-        {/* FreeLesson убираем в самый низ для "дожима" сомневающихся */}
-        <FreeLesson />
-        
-        <Guarantee />
-        <FinalCTA />
-      </main>
-
+      <Hero />
+      <FreeLesson />
+      <PainPoints />
+      <Expert />
+      <USP />
+      <Program />
+      <Cases />
+      <Reviews />
+      <FAQ />
+      <ConsultationSurvey />
+      <Pricing onSelectPlan={handleSelectPlan} />
+      <Guarantee />
+      <FinalCTA />
       <Footer />
       
+      {/* Payment Modal */}
       <PaymentModal 
         isOpen={isPaymentModalOpen}
         onClose={() => setIsPaymentModalOpen(false)}
         planName={selectedPlan}
       />
+      
+      {/* Scroll Progress Bar */}
+      <div 
+        className="fixed top-0 left-0 h-1 bg-orange-500 z-[100] transition-all duration-300"
+        style={{ width: '0%', animation: 'scroll-watch linear both', animationTimeline: 'scroll()' }}
+      />
+      
+      <style>{`
+        @keyframes scroll-watch {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        
+        @media (max-width: 1023px) {
+          .glass {
+            backdrop-filter: blur(20px);
+          }
+        }
+        
+        iframe {
+          border-radius: 12px;
+        }
+      `}</style>
     </div>
   );
 };
