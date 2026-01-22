@@ -367,7 +367,6 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => 
         { text: "Общий чат с учениками", included: false },
       ],
       cta: "Купить и начать",
-      
       isDirectPay: true
     },
     { 
@@ -397,7 +396,6 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => 
       price: "$1,499", 
       priceRub: "≈ 119,000 ₽",
       badge: "Ограниченно",
-      
       features: [
         { text: "Всё из тарифа \"Продвинутый\"", included: true },
         { text: "Личная работа со мной 1 на 1", included: true },
@@ -429,9 +427,9 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
         {plans.map((plan, i) => (
           <Reveal key={i} delay={i * 100} className="h-full">
-            <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 text-xs font-black rounded-full uppercase tracking-[0.2em] shadow-lg ${plan.isPopular ? 'bg-orange-500 text-white' : 'bg-zinc-700 text-zinc-100'}`}>
+            <div className={`h-full p-8 md:p-10 rounded-[2.5rem] border flex flex-col transition-all duration-500 ${plan.isPopular ? 'bg-[#1a1a1a] border-orange-500 relative orange-glow scale-105 z-10' : 'bg-[#111111] border-white/5 hover:border-white/10'}`}>
               {plan.badge && (
-                <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 text-xs font-black rounded-full uppercase tracking-[0.2em] shadow-lg ${plan.badge === 'PREMIUM' ? 'bg-zinc-700 text-zinc-100' : 'bg-orange-500 text-white'}`}>
+                <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 text-xs font-black rounded-full uppercase tracking-[0.2em] shadow-lg ${plan.isPopular ? 'bg-orange-500 text-white' : 'bg-zinc-700 text-zinc-100'}`}>
                   {plan.badge}
                 </div>
               )}
