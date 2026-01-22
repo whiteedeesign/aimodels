@@ -230,7 +230,7 @@ const Program = () => {
         <Reveal>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Программа <span className="text-orange-500">обучения</span></h2>
-            <p className="text-zinc-400 text-lg">7 разделов + бонусные материалы, которые проведут тебя от нуля до стабильного дохода</p>
+            <p className="text-zinc-400 text-lg">7 разделов + бонусные материалы, которые проведут тебя от нуля к стабильному доходу</p>
           </div>
         </Reveal>
 
@@ -280,43 +280,43 @@ const Cases = () => {
       icon: <CircleDollarSign size={24} />,
       val: "$200",
       sub: "за один день",
-      desc: "Спустя 3 недели после старта обучения. До курса создал модель, но не понимал как на ней заработать.",
-      sig: "Ученик, 3 недели в программе"
+      desc: "Спустя 3 недели после внедрения системы. До покупки системы создал модель, но не понимал как на ней заработать.",
+      sig: "Участник, 3 недели в Private Model Club"
     },
     {
       icon: <TrendingUp size={24} />,
       val: "+1,900",
       sub: "целевых подписчиков",
       desc: "Через 3 дня после применения стратегии из раздела по трафику. Результат превзошёл все ожидания.",
-      sig: "Ученик, 1 неделя в программе"
+      sig: "Участник, 1 неделя в Private Model Club"
     },
     {
       icon: <DollarSign size={24} />,
       val: "$1,500/мес",
       sub: "на автопилоте",
-      desc: "Спустя 2 месяца работы. Выстроил систему, нанял ассистента по инструкциям из раздела масштабирования.",
-      sig: "Ученик, 2 месяца в программе"
+      desc: "Спустя 3 месяца работы. Выстроил систему, нанял ассистента по инструкциям из раздела масштабирования.",
+      sig: "Участник, 3 месяца в Private Model Club"
     },
     {
       icon: <Zap size={24} />,
-      val: "5 дней",
+      val: "11 дней",
       sub: "до первой продажи",
-      desc: "Полный новичок в нейросетях. Следовал пошаговым инструкциям — и уже на 5-й день получил первый платёж.",
-      sig: "Ученик, новичок"
+      desc: "Полный новичок в нейросетях. Следовал пошаговым инструкциям — и уже на 11-й день получил первый платёж.",
+      sig: "Участник, новичок"
     },
     {
       icon: <Globe size={24} />,
       val: "$3,000/мес",
       sub: "из СНГ на рынке USA",
-      desc: "Работает удалённо из России. Думал, что принимать оплату невозможно — всё решилось за пару часов настройки.",
-      sig: "Ученик, 3 месяца в программе"
+      desc: "Работает удалённо из России. Не понимал, как монетизировать трафик — всъ решил с помощью одного раздела.",
+      sig: "Участник, 3 месяца в Private Model Club"
     },
     {
       icon: <Target size={24} />,
       val: "$50",
       sub: "первый кастомный заказ",
-      desc: "Через 10 дней после старта. Следовал скриптам из раздела продаж — клиент сам попросил сделать кастомный сет.",
-      sig: "Ученик, 2 недели в программе"
+      desc: "Через 14 дней после старта. Следовал скриптам из раздела продаж — клиент сам попросил сделать кастомный сет.",
+      sig: "Участник, 2 недели в Private Model Club"
     }
   ];
 
@@ -325,7 +325,7 @@ const Cases = () => {
       <Reveal>
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Результаты <span className="text-orange-500">учеников</span></h2>
-          <p className="text-zinc-400 text-lg">Реальные результаты тех, кто уже прошёл обучение</p>
+          <p className="text-zinc-400 text-lg">Примеры реализации системы на практике</p>
         </div>
       </Reveal>
       
@@ -348,36 +348,121 @@ const Cases = () => {
   );
 };
 
-const Reviews = () => {
-  const reviewsData = [
-    { text: "Вообще начинал пробовать ещё до покупки курса, собирал инфу у разных блогеров. Но здесь всё максимально детально — дало немало полезной инфы. Было 300 подписчиков, сейчас +1900 с начала покупки курса. 3 дня получается.", sig: "Ученик курса • Результат за 3 дня" },
-    { text: "Это лучшее обучение, которое я покупал за последнее время. Столько информации, поэтапно, структурировано и понятно — просто невозможно что-то не понять. Дошёл до 4-го дня включительно, всё понятно. Очень благодарен!", sig: "Ученик курса • Тариф Продвинутый" },
-    { text: "Хотел глубже разобраться в нейронках, прошёл уже большую часть и впечатлён объөмом материала! За такую цену честно не ожидал получить настолько детальный разбор. Всё разложено по полочкам, каждый день новый блок информации.", sig: "Arkadiy • Тариф Продвинутый" },
-    { text: "Взял обучение в самом начале, прошёл 7 дней обучения — уже продал первую подписку. Особенно зацепило то, что в обучении не просто теория, а каждый шаг разжёван. У меня вообще не было опыта с нейронками, но благодаря такой подаче научился с ними работать.", sig: "Ученик курса • Первая продажа за 7 дней" },
-    { text: "Брал платный курс по ИИ моделям — не пожалел от слова совсем. Всё настолько подробно расписано, что справится даже ребёнок. Рекомендую 100%", sig: "Ученик курса" },
-    { text: "Сделку провели без гаранта, всё доходчиво объясняет, предлагает альтернативные решения если возникают проблемы. Всегда на связи — рекомендую однозначно!", sig: "Владислав • Тариф Продвинутый" }
+const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => {
+  const plans = [
+    { 
+      name: "Самостоятельный", 
+      price: "$249", 
+      priceRub: "≈ 20,000 ₽",
+      badge: "БАЗОВЫЙ",
+      features: [
+        { text: "Все 7 разделов обучения", included: true },
+        { text: "500+ промптов для генерации", included: true },
+        { text: "50 скриптов продаж", included: true },
+        { text: "Контент-план на 30 дней", included: true },
+        { text: "Чек-листы для каждого этапа", included: true },
+        { text: "Доступ к материалам навсегда", included: true },
+        { text: "Обновления программы", included: false },
+        { text: "Личная поддержка", included: false },
+        { text: "Общий чат с учениками", included: false },
+      ],
+      cta: "Купить и начать",
+      
+      isDirectPay: true
+    },
+    { 
+      name: "Продвинутый", 
+      price: "$549", 
+      priceRub: "≈ 49,000 ₽",
+      badge: "ПОСЛЕ ОТБОРА",
+      isPopular: true,
+      features: [
+        { text: "Всё из тарифа \"Самостоятельный\"", included: true },
+        { text: "Постоянные обновления программы", included: true },
+        { text: "Новые уроки и материалы бесплатно", included: true },
+        { text: "Личная поддержка в Telegram", included: true },
+        { text: "Ответы на вопросы в течение 24 часов", included: true },
+        { text: "Созвоны по запросу при необходимости", included: true },
+        { text: "Доступ в закрытый чат учеников", included: true },
+        { text: "Нетворкинг и обмен опытом", included: true },
+        { text: "Дополнительные материалы и кейсы", included: true },
+        { text: "Приоритетный доступ к новым урокам", included: true },
+        { text: "Доступ навсегда", included: true },
+      ],
+      cta: "Подать заявку →",
+      isDirectPay: false
+    },
+    { 
+      name: "Менторство", 
+      price: "$1,499", 
+      priceRub: "≈ 119,000 ₽",
+      badge: "Ограниченно",
+      
+      features: [
+        { text: "Всё из тарифа \"Продвинутый\"", included: true },
+        { text: "Личная работа со мной 1 на 1", included: true },
+        { text: "Я сам инициирую созвоны и проверки", included: true },
+        { text: "Персональный план запуска модели", included: true },
+        { text: "Разбор твоей ситуации и стратегия", included: true },
+        { text: "Еженедельные созвоны по прогрессу", included: true },
+        { text: "Проверка и корректировка контента", included: true },
+        { text: "Помощь с настройкой всех аккаунтов", included: true },
+        { text: "Работаем вместе до первого результата", included: true },
+        { text: "Приоритетная поддержка 24/7", included: true },
+        { text: "Прямой доступ в личные сообщения", included: true },
+        { text: "Доступ навсегда", included: true },
+      ],
+      cta: "Обсудить формат →",
+      isDirectPay: false
+    }
   ];
 
   return (
-    <section className="py-24 px-6 bg-[#111111]/20">
+    <section id="pricing" className="py-24 px-6 max-w-7xl mx-auto">
       <Reveal>
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Отзывы <span className="text-orange-500">учеников</span></h2>
-          <p className="text-zinc-400 text-lg">Реальные отзывы из Telegram</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Форматы <span className="text-orange-500">обучения</span></h2>
+          <p className="text-zinc-400 text-lg">Выбирай под свой темп и цели</p>
         </div>
       </Reveal>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {reviewsData.map((item, i) => (
-          <Reveal key={i} delay={i * 50}>
-            <div className="group bg-[#1a1a1a] p-8 rounded-3xl border border-[#2a2a2a] h-full flex flex-col hover:border-orange-500/30 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
-              <div className="absolute top-4 left-4 opacity-10 text-orange-500 pointer-events-none">
-                <Quote size={48} fill="currentColor" />
+      
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        {plans.map((plan, i) => (
+          <Reveal key={i} delay={i * 100} className="h-full">
+            <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 text-xs font-black rounded-full uppercase tracking-[0.2em] shadow-lg ${plan.isPopular ? 'bg-orange-500 text-white' : 'bg-zinc-700 text-zinc-100'}`}>
+              {plan.badge && (
+                <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 text-xs font-black rounded-full uppercase tracking-[0.2em] shadow-lg ${plan.badge === 'PREMIUM' ? 'bg-zinc-700 text-zinc-100' : 'bg-orange-500 text-white'}`}>
+                  {plan.badge}
+                </div>
+              )}
+              
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold mb-4 text-white">{plan.name}</h3>
+                <div className="text-5xl font-black text-white mb-1">{plan.price}</div>
+                <div className="text-sm text-zinc-500">{plan.priceRub}</div>
               </div>
-              <div className="flex gap-1 mb-6 relative z-10">
-                {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 text-orange-500 fill-current" />)}
+
+              <div className="space-y-4 mb-10 flex-grow">
+                {plan.features.map((f, j) => (
+                  <div key={j} className={`flex items-start gap-3 ${f.included ? 'text-zinc-300' : 'text-zinc-600 italic'}`}>
+                    {f.included ? (
+                      <CheckCircle className="text-orange-500 w-5 h-5 shrink-0 mt-0.5" />
+                    ) : (
+                      <X className="text-zinc-600 w-5 h-5 shrink-0 mt-0.5" />
+                    )}
+                    <span className="text-sm">{f.text}</span>
+                  </div>
+                ))}
               </div>
-              <p className="text-white text-lg leading-relaxed mb-8 relative z-10 font-medium italic">"{item.text}"</p>
-              <div className="mt-auto text-xs text-[#a1a1aa] font-bold uppercase tracking-widest relative z-10">{item.sig}</div>
+
+              <div className="mt-auto">
+                <button 
+                  onClick={() => onSelectPlan(plan.name)}
+                  className={`w-full py-5 rounded-2xl font-black text-base uppercase tracking-wider transition-all duration-300 ${plan.isPopular ? 'bg-orange-500 text-white hover:bg-orange-600 orange-glow' : 'border border-white/20 text-white hover:bg-white/5'}`}
+                >
+                  {plan.cta}
+                </button>
+              </div>
             </div>
           </Reveal>
         ))}
@@ -385,6 +470,57 @@ const Reviews = () => {
     </section>
   );
 };
+
+const ConsultationSurvey = () => (
+  <section id="selection" className="py-24 px-6 max-w-4xl mx-auto text-center">
+    <Reveal>
+      <div className="p-12 glass rounded-[2.5rem] border border-orange-500/30 relative overflow-hidden bg-[#1a1a1a]">
+        <div className="absolute -top-10 -right-10 p-4 opacity-[0.05] rotate-12 pointer-events-none">
+          <ClipboardCheck size={240} className="text-orange-500" />
+        </div>
+        
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6">
+          ОТБОР НА ПРОДВИНУТЫЙ ФОРМАТ
+        </div>
+        
+        <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tight">
+          Заявка на <span className="text-orange-500">"Продвинутый"</span>
+        </h2>
+        
+        <p className="text-zinc-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+          Чтобы сохранить качество поддержки, мы не берем всех. Процесс: анкета → решение → созвон → оплата.
+          Мы можем отказать, если формат обучения вам не подходит.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 max-w-2xl mx-auto">
+          {[
+            "Анкета за 2 минуты",
+            "Решение в течение суток",
+            "Короткий созвон-знакомство",
+            "Разбор возможностей и желания"
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-3 text-zinc-300 font-medium">
+              <CheckCircle className="text-orange-500 w-5 h-5 shrink-0" />
+              <span className="text-sm uppercase tracking-wider">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col items-center gap-4">
+          <a 
+            href="https://forms.gle/LPPHNkrJeSTaC87C6" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xl font-bold transition-all orange-glow flex items-center gap-3"
+          >
+            Заполнить анкету →
+          </a>
+          <p className="text-zinc-600 text-sm">Обычно отвечаем в течение 24 часов</p>
+        </div>
+      </div>
+    </Reveal>
+  </section>
+);
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -403,8 +539,8 @@ const FAQ = () => {
       <Reveal>
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Частые <span className="text-orange-500">вопросы</span></h2>
-        </div>
-      </Reveal>
+            </div>
+         </Reveal>
       <div className="space-y-2">
         {questions.map((q, i) => (
           <div key={i} className="border-b border-white/5 last:border-0">
@@ -419,284 +555,46 @@ const FAQ = () => {
             </button>
             <div className={`transition-all duration-500 ease-in-out overflow-hidden ${openIndex === i ? 'max-h-96 opacity-100 pb-8' : 'max-h-0 opacity-0'}`}>
               <p className="text-[#a1a1aa] text-lg leading-relaxed">{q.answer}</p>
-            </div>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-};
-
-const ConsultationSurvey = () => (
-  <section className="py-24 px-6 max-w-4xl mx-auto text-center">
-    <Reveal>
-      <div className="p-12 glass rounded-[2.5rem] border border-orange-500/30 relative overflow-hidden bg-[#1a1a1a]">
-        <div className="absolute -top-10 -right-10 p-4 opacity-[0.05] rotate-12 pointer-events-none">
-          <PhoneCall size={240} className="text-orange-500" />
         </div>
-        
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-orange-500/30 text-orange-500 text-xs font-bold uppercase tracking-widest mb-6">
-          БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ
-        </div>
-        
-        <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tight">
-          Не знаешь <span className="text-orange-500">какой тариф</span> выбрать?
-        </h2>
-        
-        <p className="text-zinc-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-          Заполни короткую анкету — я лично свяжусь с тобой, разберу твою ситуацию и помогу выбрать оптимальный формат обучения. Без давления и навязывания.
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 max-w-2xl mx-auto">
-          {[
-            "Анкета на 2 минуты",
-            "Личный созвон со мной",
-            "Индивидуальные рекомендации",
-            "Без обязательств к покупке"
-          ].map((item, i) => (
-            <div key={i} className="flex items-center gap-3 text-zinc-300 font-medium">
-              <CheckCircle className="text-orange-500 w-5 h-5 shrink-0" />
-              <span className="text-sm uppercase tracking-wider">{item}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="flex flex-col items-center gap-4">
-          <a 
-            href="https://forms.gle/LPPHNkrJeSTaC87C6" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xl font-bold transition-all orange-glow flex items-center gap-3"
-          >
-            Заполнить анкету →
-          </a>
-          <p className="text-zinc-600 text-sm font-medium">
-            Обычно отвечаю в течение 24 часов
-          </p>
-        </div>
-      </div>
-    </Reveal>
+      ))}
+    </div>
   </section>
 );
-
-// Модальное окно выбора способа оплаты
-const PaymentModal = ({ 
-  isOpen, 
-  onClose, 
-  planName 
-}: { 
-  isOpen: boolean; 
-  onClose: () => void; 
-  planName: string | null;
-}) => {
-  if (!isOpen || !planName) return null;
-
-  const links = paymentLinks[planName];
-  if (!links) return null;
-
-  return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-      <div 
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        onClick={onClose}
-      />
-      
-      <div className="relative bg-[#1a1a1a] rounded-3xl border border-white/10 p-8 md:p-10 max-w-md w-full">
-        <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors"
-        >
-          <X className="w-5 h-5 text-zinc-400" />
-        </button>
-
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-orange-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CreditCard className="w-8 h-8 text-orange-500" />
-          </div>
-          <h3 className="text-2xl font-bold text-white mb-2">Выбери способ оплаты</h3>
-          <p className="text-zinc-400">Тариф: <span className="text-orange-500 font-semibold">{planName}</span></p>
-        </div>
-
-        <div className="space-y-3">
-          <a 
-            href={links.rub}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-4 w-full p-4 bg-[#252525] hover:bg-[#2a2a2a] border border-white/5 hover:border-orange-500/30 rounded-xl transition-all group"
-          >
-            <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
-              <span className="text-2xl">🇷🇺</span>
-            </div>
-            <div className="flex-grow text-left">
-              <div className="text-white font-bold">Рубли (₽)</div>
-              <div className="text-zinc-500 text-sm">Карты РФ, СБП</div>
-            </div>
-            <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-orange-500 transition-colors" />
-          </a>
-
-          <a 
-            href={links.eur}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-4 w-full p-4 bg-[#252525] hover:bg-[#2a2a2a] border border-white/5 hover:border-orange-500/30 rounded-xl transition-all group"
-          >
-            <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
-              <span className="text-2xl">🇪🇺</span>
-            </div>
-            <div className="flex-grow text-left">
-              <div className="text-white font-bold">Евро (€)</div>
-              <div className="text-zinc-500 text-sm">Иностранные карты</div>
-            </div>
-            <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-orange-500 transition-colors" />
-          </a>
-
-          <a 
-            href={links.crypto}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-4 w-full p-4 bg-[#252525] hover:bg-[#2a2a2a] border border-white/5 hover:border-orange-500/30 rounded-xl transition-all group"
-          >
-            <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
-              <span className="text-2xl">₿</span>
-            </div>
-            <div className="flex-grow text-left">
-              <div className="text-white font-bold">Криптовалюта</div>
-              <div className="text-zinc-500 text-sm">USDT, BTC, ETH</div>
-            </div>
-            <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-orange-500 transition-colors" />
-          </a>
-        </div>
-
-        <p className="text-center text-zinc-600 text-xs mt-6">
-          🔒 Безопасная оплата через Telegram
-        </p>
-      </div>
-    </div>
-  );
 };
 
-const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => {
-  const plans = [
-    { 
-      name: "Самостоятельный", 
-      price: "$249", 
-      priceRub: "≈ 20,000 ₽",
-      badge: null,
-      features: [
-        { text: "Все 7 разделов обучения", included: true },
-        { text: "Пошаговые видео-уроки", included: true },
-        { text: "500+ промптов для генерации", included: true },
-        { text: "50 скриптов продаж", included: true },
-        { text: "Контент-план на 30 дней", included: true },
-        { text: "Чек-листы для каждого этапа", included: true },
-        { text: "Доступ к материалам навсегда", included: true },
-        { text: "Обновления программы", included: false },
-        { text: "Личная поддержка", included: false },
-        { text: "Общий чат с учениками", included: false },
-      ],
-      cta: "Выбрать тариф",
-      footer: "Доступен всегда",
-      isPopular: false
-    },
-    { 
-      name: "Продвинутый", 
-      price: "$549", 
-      priceRub: "≈ 49,000 ₽",
-      badge: "ХИТ ПРОДАЖ",
-      isPopular: true,
-      features: [
-        { text: "Всё из тарифа \"Самостоятельный\"", included: true },
-        { text: "Постоянные обновления программы", included: true },
-        { text: "Новые уроки и материалы бесплатно", included: true },
-        { text: "Личная поддержка в Telegram", included: true },
-        { text: "Ответы на вопросы в течение 24 часов", included: true },
-        { text: "Созвоны по запросу при необходимости", included: true },
-        { text: "Доступ в закрытый чат учеников", included: true },
-        { text: "Нетворкинг и обмен опытом", included: true },
-        { text: "Дополнительные материалы и кейсы", included: true },
-        { text: "Приоритетный доступ к новым урокам", included: true },
-        { text: "Доступ навсегда", included: true },
-      ],
-      cta: "Забронировать место →",
-      footer: "⚡ Ограниченное кол-во мест"
-    },
-    { 
-      name: "Менторство", 
-      price: "$1,499", 
-      priceRub: "≈ 119,000 ₽",
-      badge: "PREMIUM",
-      isPopular: false,
-      features: [
-        { text: "Всё из тарифа \"Продвинутый\"", included: true },
-        { text: "Личная работа со мной 1 на 1", included: true },
-        { text: "Я сам инициирую созвоны и проверки", included: true },
-        { text: "Персональный план запуска модели", included: true },
-        { text: "Разбор твоей ситуации и стратегия", included: true },
-        { text: "Еженедельные созвоны по прогрессу", included: true },
-        { text: "Проверка и корректировка контента", included: true },
-        { text: "Помощь с настройкой всех аккаунтов", included: true },
-        { text: "Работаем вместе до первого результата", included: true },
-        { text: "Приоритетная поддержка 24/7", included: true },
-        { text: "Прямой доступ в личные сообщения", included: true },
-        { text: "Доступ навсегда", included: true },
-      ],
-      cta: "Забронировать место →",
-      footer: "⚡ Ограниченное кол-во мест"
-    }
+const Reviews = () => {
+  const reviewsData = [
+    { text: "Вообще начинал пробовать ещё до покупки курса, собирал инфу у разных блогеров. Но здесь всё максимально детально — дало немало полезной инфы. Было 300 подписчиков, сейчас +1900 с начала покупки курса. 3 дня получается.", sig: "Ученик курса • Результат за 3 дня" },
+    { text: "Это лучшее обучение, которое я покупал за последнее время. Столько информации, поэтапно, структурировано и понятно — просто невозможно что-то не понять. Дошёл до 4-го дня включительно, всё понятно. Очень благодарен!", sig: "Ученик курса • Тариф Продвинутый" },
+    { text: "Хотел глубже разобраться в нейронках, прошёл уже большую часть и впечатлён объөмом материала! За такую цену честно не ожидал получить настолько детальный разбор. Всё разложено по полочкам, каждый день новый блок информации.", sig: "Arkadiy • Тариф Продвинутый" },
+    { text: "Взял обучение в самом начале, прошёл 7 дней обучения — уже продал первую подписку. Особенно зацепило то, что в обучении не просто теория, а каждый шаг разжёван. У меня вообще не было опыта с нейронками, но благодаря такой подаче научился с ними работать.", sig: "Ученик курса • Первая продажа за 7 дней" },
+    { text: "Брал платный курс по ИИ моделям — не пожалел от слова совсем. Всё настолько подробно расписано, что справится даже ребёнок. Рекомендую 100%", sig: "Ученик курса" },
+    { text: "Сделку провели без гаранта, всё доходчиво объясняет, предлагает альтернативные решения если возникают проблемы. Всегда на связи — рекомендую однозначно!", sig: "Владислав • Тариф Продвинутый" }
   ];
 
   return (
-    <section id="pricing" className="py-24 px-6 max-w-7xl mx-auto">
+    <section className="py-24 px-6 bg-[#111111]/20">
       <Reveal>
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Выбери свой <span className="text-orange-500">формат</span> обучения</h2>
-          <p className="text-zinc-400 text-lg mb-2">Количество мест ограничено</p>
-          <p className="text-orange-500 font-bold uppercase tracking-widest text-sm">
-            ⚡ Ограниченное кол-во мест
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Отзывы <span className="text-orange-500">участников</span></h2>
+          <p className="text-zinc-400 text-lg">Сообщество Private Model Club</p>
         </div>
-      </Reveal>
+        </Reveal>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {reviewsData.map((item, i) => (
+          <Reveal key={i} delay={i * 50}>
+            <div className="group bg-[#1a1a1a] p-8 rounded-3xl border border-[#2a2a2a] h-full flex flex-col hover:border-orange-500/30 transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-4 left-4 opacity-10 text-orange-500">
+                <Quote size={48} fill="currentColor" />
+      </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-        {plans.map((plan, i) => (
-          <Reveal key={i} delay={i * 100} className="h-full">
-            <div className={`h-full p-8 md:p-10 rounded-[2.5rem] border flex flex-col transition-all duration-500 ${plan.isPopular ? 'bg-[#1a1a1a] border-orange-500 relative orange-glow scale-105 z-10' : 'bg-[#111111] border-white/5 hover:border-white/10'}`}>
-              {plan.badge && (
-                <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-5 py-1.5 text-xs font-black rounded-full uppercase tracking-[0.2em] shadow-lg ${plan.badge === 'PREMIUM' ? 'bg-zinc-700 text-zinc-100' : 'bg-orange-500 text-white'}`}>
-                  {plan.badge}
-                </div>
-              )}
-              
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold mb-4 text-white tracking-tight">{plan.name}</h3>
-                <div className="text-5xl font-black text-white mb-1">{plan.price}</div>
-                <div className="text-sm text-zinc-500 font-medium">{plan.priceRub}</div>
-              </div>
-
-              <div className="space-y-4 mb-10 flex-grow">
-                {plan.features.map((f, j) => (
-                  <div key={j} className={`flex items-start gap-3 ${f.included ? 'text-zinc-300' : 'text-zinc-600 italic'}`}>
-                    {f.included ? (
-                      <CheckCircle className="text-orange-500 w-5 h-5 shrink-0 mt-0.5" />
-                    ) : (
-                      <X className="text-zinc-600 w-5 h-5 shrink-0 mt-0.5" />
-                    )}
-                    <span className="text-sm leading-relaxed">{f.text}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-auto">
-                <button 
-                  onClick={() => onSelectPlan(plan.name)}
-                  className={`w-full py-5 rounded-2xl font-black text-base uppercase tracking-wider transition-all duration-300 mb-4 ${plan.isPopular ? 'bg-orange-500 text-white hover:bg-orange-600 orange-glow' : 'border border-white/20 text-white hover:bg-white/5'}`}
-                >
-                  {plan.cta}
-                </button>
-                <div className={`text-center text-xs font-bold uppercase tracking-widest ${plan.footer.includes('⚡') ? 'text-orange-500 animate-pulse' : 'text-zinc-600'}`}>
-                  {plan.footer}
-                </div>
-              </div>
+      <div className="flex gap-1 mb-6 relative z-10">
+                {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 text-orange-500 fill-current" />)}
+      </div>
+      
+      <p className="text-white text-lg leading-relaxed mb-8 relative z-10 italic">"{item.text}"</p>
+              <div className="mt-auto text-xs text-[#a1a1aa] font-bold uppercase tracking-widest relative z-10">{item.sig}</div>
             </div>
           </Reveal>
         ))}
@@ -705,71 +603,105 @@ const Pricing = ({ onSelectPlan }: { onSelectPlan: (name: string) => void }) => 
   );
 };
 
-const Guarantee = () => (
-  <section className="py-24 px-6 max-w-5xl mx-auto text-center">
-    <Reveal>
-      <div className="p-12 glass rounded-[2.5rem] border border-orange-500/30 relative overflow-hidden bg-[#111111]">
-        <div className="absolute -top-10 -right-10 p-4 opacity-[0.03] rotate-12 pointer-events-none">
-          <ShieldCheck size={280} className="text-orange-500" />
-        </div>
-        <div className="absolute -bottom-10 -left-10 p-4 opacity-[0.03] -rotate-12 pointer-events-none">
-          <ShieldCheck size={280} className="text-orange-500" />
-        </div>
-        
-        <ShieldCheck className="mx-auto text-orange-500 w-16 h-16 mb-8" />
-        <h2 className="text-4xl md:text-5xl font-black mb-8 tracking-tight">Гарантия первого <span className="text-orange-500">результата</span></h2>
-        
-        <p className="text-white text-lg md:text-2xl font-medium mb-4 leading-relaxed max-w-3xl mx-auto">
-          Если ты пройдёшь все модули, выполнишь задания и не получишь первых подписчиков в течение 30 дней — я лично разберу твою ситуацию на созвоне и дам индивидуальные рекомендации бесплатно.
-        </p>
-        
-        <p className="text-zinc-500 text-sm md:text-base mb-12 max-w-2xl mx-auto italic">
-          Распространяется на тарифы "Продвинутый" и "Менторство"
-        </p>
+const PaymentModal = ({ isOpen, onClose, planName }: { isOpen: boolean; onClose: () => void; planName: string | null }) => {
+  if (!isOpen || !planName) return null;
+  const links = paymentLinks[planName];
+  if (!links) return null;
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-white/5">
-          {[
-            "Действует 30 дней после старта",
-            "Личный разбор на созвоне",
-            "Индивидуальные рекомендации"
-          ].map((item, i) => (
-            <div key={i} className="flex items-center justify-center gap-3 text-zinc-300">
-              <CheckCircle className="text-orange-500 w-5 h-5 shrink-0" />
-              <span className="text-sm font-bold uppercase tracking-wider">{item}</span>
-            </div>
-          ))}
+  return (
+    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative bg-[#1a1a1a] rounded-3xl border border-white/10 p-8 md:p-10 max-w-md w-full animate-in zoom-in duration-200">
+        <button onClick={onClose} className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+          <X className="w-5 h-5 text-zinc-400" />
+        </button>
+        <div className="text-center mb-8">
+          <h3 className="text-2xl font-bold text-white mb-2">Способ оплаты</h3>
+          <p className="text-zinc-400">Тариф: <span className="text-orange-500 font-semibold">{planName}</span></p>
         </div>
+        <div className="space-y-3">
+          <a href={links.rub} target="_blank" className="flex items-center gap-4 w-full p-4 bg-[#252525] hover:bg-[#2a2a2a] border border-white/5 rounded-xl transition-all">
+            <span className="text-2xl">🇷🇺</span>
+            <div className="text-left"><div className="text-white font-bold">Рубли (₽)</div><div className="text-zinc-500 text-sm">Карты РФ, СБП</div></div>
+          </a>
+          <a href={links.eur} target="_blank" className="flex items-center gap-4 w-full p-4 bg-[#252525] hover:bg-[#2a2a2a] border border-white/5 rounded-xl transition-all">
+            <span className="text-2xl">🇪🇺</span>
+            <div className="text-left"><div className="text-white font-bold">Евро (€)</div><div className="text-zinc-500 text-sm">Иностранные карты</div></div>
+          </a>
+          <a href={links.crypto} target="_blank" className="flex items-center gap-4 w-full p-4 bg-[#252525] hover:bg-[#2a2a2a] border border-white/5 rounded-xl transition-all">
+            <span className="text-2xl">₿</span>
+            <div className="text-left"><div className="text-white font-bold">Криптовалюта</div><div className="text-zinc-500 text-sm">USDT, BTC, ETH</div></div>
+        </a>
       </div>
-    </Reveal>
-  </section>
-);
-
-const FinalCTA = () => (
-  <section className="py-24 px-6 relative overflow-hidden">
-    <div className="absolute inset-0 bg-orange-600/10 -z-10"></div>
-    <div className="max-w-4xl mx-auto text-center">
-      <Reveal>
-        <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">Начни <span className="text-orange-500">зарабатывать</span> на AI-моделях</h2>
-        <p className="text-zinc-400 text-xl mb-12 leading-relaxed">
-          Через месяц ты можешь остаться там же, где сейчас. Или уже получить первые деньги с AI-модели. Решение за тобой.
-        </p>
-        <div className="flex flex-col items-center justify-center gap-4">
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <a href="#pricing" className="px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xl font-bold transition-all orange-glow flex items-center gap-3">
-              Забронировать место →
-            </a>
-            <div className="flex items-center gap-2 text-orange-500 font-bold uppercase tracking-widest text-sm animate-pulse">
-              ⚡Успей забрать своё место
-            </div>
-          </div>
-          <p className="text-zinc-500 text-sm font-medium mt-2">
-            Количество мест ограничено
-          </p>
-        </div>
-      </Reveal>
     </div>
-  </section>
+
+    </div>
 );
+};
+
+// --- Main App ---
+
+const App: React.FC = () => {
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+
+  const handleSelectPlan = (planName: string) => {
+    if (planName === "Самостоятельный") {
+    setSelectedPlan(planName);
+    setIsPaymentModalOpen(true);
+  
+    } else {
+      document.getElementById('selection')?.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    };
+  
+  useEffect(() => {
+    document.body.style.overflow = isPaymentModalOpen ? 'hidden' : 'unset';
+  }, [isPaymentModalOpen]);
+
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <Program />
+      <Cases />
+      <Pricing onSelectPlan={handleSelectPlan} />
+      <ConsultationSurvey />
+      <FAQ />
+      <Reviews />
+      
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-orange-600/5 -z-10"></div>
+        <div className="max-w-4xl mx-auto text-center">
+          <Reveal>
+            <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">Готов <span className="text-orange-500">начать?</span></h2>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <a href="#pricing" className="px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xl font-bold transition-all orange-glow">
+                Выбрать тариф
+              </a>
+              <a href="https://t.me/ofm_daddy" className="px-10 py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-xl text-xl font-bold transition-all">
+                Связаться в TG
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <Footer />
+      <PaymentModal isOpen={isPaymentModalOpen} onClose={() => setIsPaymentModalOpen(false)} planName={selectedPlan} />
+      <div 
+        className="fixed top-0 left-0 h-1 bg-orange-500 z-[100] transition-all duration-300"
+        style={{ width: '0%', animation: 'scroll-watch linear both', animationTimeline: 'scroll()' }}
+      />
+      
+      <style>{`
+        @keyframes scroll-watch { from { width: 0%; } to { width: 100%; } }
+        .glass { backdrop-filter: blur(20px); }
+      `}</style>
+    </div>
+  );
+};
 
 const Footer = () => (
   <footer id="footer" className="py-12 px-6 border-t border-white/5 glass">
@@ -780,108 +712,23 @@ const Footer = () => (
         </div>
         Ai<span className="text-orange-500">Model</span>Club
       </div>
-      
       <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-zinc-500 font-medium">
-        <a href="#about" className="hover:text-white hover:text-orange-500 transition-colors">О курсе</a>
-        <a href="#program" className="hover:text-white hover:text-orange-500 transition-colors">Программа</a>
-        <a href="#pricing" className="hover:text-white hover:text-orange-500 transition-colors">Тарифы</a>
-        <a href="https://t.me/ofm_daddy" className="hover:text-white hover:text-orange-500 transition-colors">Контакты</a>
+        <a href="#about" className="hover:text-orange-500 transition-colors">О курсе</a>
+        <a href="#program" className="hover:text-orange-500 transition-colors">Программа</a>
+        <a href="#pricing" className="hover:text-orange-500 transition-colors">Тарифы</a>
+        <a href="https://t.me/ofm_daddy" className="hover:text-orange-500 transition-colors">Контакты</a>
       </div>
-      
       <div className="flex items-center gap-4">
-        <a href="https://t.me/ofm_daddy" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors group">
+        <a href="https://t.me/ofm_daddy" target="_blank" className="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors group">
           <Send className="w-5 h-5 text-zinc-400 group-hover:text-white" />
         </a>
-        <a href="https://instagram.com/neural_daddy" target="_blank" rel="noopener noreferrer" className="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors group">
+        <a href="https://instagram.com/neural_daddy" target="_blank" className="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors group">
           <Instagram className="w-5 h-5 text-zinc-400 group-hover:text-white" />
         </a>
       </div>
     </div>
-    <div className="text-center mt-12 text-zinc-600 text-xs">
-      © 2025 Neural Daddy. Все права защищены.
-    </div>
+    <div className="text-center mt-12 text-zinc-600 text-xs">© 2025 Neural Daddy. Все права защищены.</div>
   </footer>
 );
-
-// --- Main App ---
-
-const App: React.FC = () => {
-  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
-
-  const handleSelectPlan = (planName: string) => {
-    setSelectedPlan(planName);
-    setIsPaymentModalOpen(true);
-  };
-
-  useEffect(() => {
-    if (isPaymentModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isPaymentModalOpen]);
-
-  return (
-    <div className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <FreeLesson />
-      <PainPoints />
-      <Expert />
-      <USP />
-      <Program />
-      <Cases />
-      <Reviews />
-      <FAQ />
-      <ConsultationSurvey />
-      <Pricing onSelectPlan={handleSelectPlan} />
-      <Guarantee />
-      <FinalCTA />
-      <Footer />
-      
-      {/* Payment Modal */}
-      <PaymentModal 
-        isOpen={isPaymentModalOpen}
-        onClose={() => setIsPaymentModalOpen(false)}
-        planName={selectedPlan}
-      />
-      
-      {/* Scroll Progress Bar */}
-      <div 
-        className="fixed top-0 left-0 h-1 bg-orange-500 z-[100] transition-all duration-300"
-        style={{ width: '0%', animation: 'scroll-watch linear both', animationTimeline: 'scroll()' }}
-      />
-      
-      <style>{`
-        @keyframes scroll-watch {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-        
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        
-        @media (max-width: 1023px) {
-          .glass {
-            backdrop-filter: blur(20px);
-          }
-        }
-        
-        iframe {
-          border-radius: 12px;
-        }
-      `}</style>
-    </div>
-  );
-};
 
 export default App;
